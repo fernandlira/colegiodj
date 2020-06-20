@@ -42,12 +42,16 @@ class Curso(models.Model):
         return self.name
 
 class Asistencia(models.Model):
+    ASISTENCIA = {
+        ('Asistio','Asistio'),
+        ('No-asistio','No-asistio'),
+    }
     id = models.AutoField(primary_key=True)
     profesor = models.ForeignKey('Profesor', on_delete=models.CASCADE)
     alumno = models.ForeignKey('Alumno', on_delete=models.CASCADE)
     curso = models.ForeignKey('Curso', on_delete=models.CASCADE)
     fecha = models.DateField(null=True, blank=True)
-    asistencia = models.CharField(max_length=100, blank=False, null=False)
+    asistencia = models.CharField(max_length=100, choices=ASISTENCIA,blank=False, null=False)
     nota = models.IntegerField(blank=False, null=True)
 
  
