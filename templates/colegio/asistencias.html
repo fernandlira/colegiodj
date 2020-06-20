@@ -1,14 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    {%for alumno in alumnos%}
-{{alumno}}
+{%extends 'base.html'%}
+
+{%block title %} Listado Alumnos {% endblock %}
+
+{%block content %} 
+<h1>Listado de alumnos</h1>
+<p>Haz click sobre el identificador del alumno para ver sus asistencias y notas</p>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Identificador</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {%for alumno in alumnos%}
+
+        <tr>
+            <th scope="row">{{alumno.id}}</th>
+            <td>{{alumno.identifier}}</td>
+            <td>{{alumno.name}}</td>
+            <td>{{alumno.last_name}}</td>
+          </tr>
+
+
+
     {%endfor%}
+      
+    </tbody>
+  </table>
+
+    {% endblock %}
 </body>
 </html>
