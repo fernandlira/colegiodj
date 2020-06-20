@@ -53,10 +53,8 @@ class Asistencia(models.Model):
     id = models.AutoField(primary_key=True)
     profesor = models.ForeignKey("auth.User", on_delete=models.CASCADE)
     alumno = models.ForeignKey("Alumno", on_delete=models.CASCADE)
-    curso = models.ForeignKey("Curso", on_delete=models.CASCADE)
     fecha = models.DateField(null=True, blank=True, default=timezone.now)
     asistencia = models.CharField(max_length=100, choices=ASISTENCIA,blank=False, null=False)
-    nota = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Asistencia del alumno"
@@ -65,3 +63,24 @@ class Asistencia(models.Model):
 
     def __str__(self):
         return f"Asistencia de {self.alumno} en clase de {self.profesor} en el día {self.fecha}"
+
+class Notas(models.Model):
+    TIPO = {
+        ("Asistio", "Asistio"),
+        ("No-asistio", "No asistio"),
+    }
+    id = models.AutoField(primary_key=True)
+    asistencia = models.ForeignKey("Asistencia", on_delete=models.CASCADE)
+    curso = models.ForeignKey("Curso", on_delete=models.CASCADE)
+    tipo = models.CharField(max_length=50, choices=TIPO,blank=False, null=False)
+    nota = models.IntegerField(blank=True, null=True)
+
+class Comentarios(models.Model):
+    id = models.AutoField(primary_key=True)
+    asistencia = models.ForeignKey("Asistencia", on_delete=models.CASCADE)
+    comentario = models.TextField(blank=False, null=False)
+
+    class Meta:
+        verbose_name = "Justificación"
+        verbose_name_plural = "Justificaciones de las asistencias"
+
