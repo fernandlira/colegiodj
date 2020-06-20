@@ -3,6 +3,7 @@
 {%block title %} Listado Asistencia {% endblock %}
 
 {%block content %} 
+<a class="btn btn-primary" href="../ver-asistencias" role="button">Atras</a>
 <h1>Asistencias y notas de estudiante <span class="text-info">{{alumno.name}}</span> </h1>
 <table class="table">
     <thead class="thead-dark">
@@ -11,6 +12,7 @@
         <th scope="col">Fecha</th>
         <th scope="col">Asistencia</th>
         <th scope="col">Nota</th>
+        <th scope="col">Profesor</th>
       </tr>
     </thead>
     <tbody>
@@ -27,6 +29,7 @@
                 {% endif %}
                 </td>
             <td>{{asistencia.nota}}</td> 
+            <td>{{asistencia.profesor}}</td> 
           </tr>
 
 
