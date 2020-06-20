@@ -3,8 +3,10 @@ from django.views.decorators.http import require_http_methods
 from django.shortcuts import redirect
 from .models import Alumno, Asistencia
 
+
 def home(request):
-    return render(request, 'colegio/index.html',{})
+    return render(request, "colegio/index.html", {})
+
 
 def getAsistencias(request):
     alumnos = Alumno.objects.all()
