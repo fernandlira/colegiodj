@@ -1,11 +1,15 @@
 {%extends 'base.html'%}
 
+{%block css %} 
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+{% endblock %}
+
 {%block title %} Listado Asistencia {% endblock %}
 
 {%block content %} 
 <a class="btn btn-primary" href="../ver-asistencias" role="button">Atras</a>
 <h1>Asistencias y notas de estudiante <span class="text-info">{{alumno.name}}</span> </h1>
-<table class="table">
+<table  id="example" class="table">
     <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
@@ -38,6 +42,16 @@
       
     </tbody>
   </table>
+
+  {%block js %} 
+
+  <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable();
+} );</script>
+{% endblock %}
 
     {% endblock %}
 </body>
