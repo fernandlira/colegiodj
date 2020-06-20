@@ -14,10 +14,9 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Fecha</th>
-        <th scope="col">Asistencia</th>
-        <th scope="col">Nota</th>
         <th scope="col">Profesor</th>
-        <th scope="col">Curso</th>
+        <th scope="col">Asistencia</th>
+        <th scope="col" class="no-sort">Justificar Falta</th>
       </tr>
     </thead>
     <tbody>
@@ -27,15 +26,16 @@
         <tr>
             <th scope="row">{{asistencia.id}}</th>
             <td>{{asistencia.fecha}}</td>
+            <td>{{asistencia.profesor}}</td> 
             <td>{%if asistencia.asistencia == 'Asistio' %}
                 <span class="badge badge-success">Asistente</span>
+                {% elif asistencia.asistencia == 'Justificada' %}
+                <span class="badge badge-warning">Justificada</span>
                 {% else %}
                 <span class="badge badge-danger">Inasistente</span>
                 {% endif %}
                 </td>
-            <td>{{asistencia.nota}}</td> 
-            <td>{{asistencia.profesor}}</td> 
-            <td>{{asistencia.curso}}</td> 
+                <td>{%if asistencia.asistencia == 'Asistio' or asistencia.asistencia == 'Justificada'%}-{% else %}<a class="btn btn-primary" href="{{asistencia.id}}/comentario" role="button">Justificar asistencia</a>{% endif %}</td>
           </tr>
 
 
