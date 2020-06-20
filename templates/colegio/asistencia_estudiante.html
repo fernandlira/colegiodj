@@ -3,7 +3,8 @@
 {%block title %} Listado Asistencia {% endblock %}
 
 {%block content %} 
-<h1>Asistencias y notas</h1>
+<a class="btn btn-primary" href="../ver-asistencias" role="button">Atras</a>
+<h1>Asistencias y notas de estudiante <span class="text-info">{{alumno.name}}</span> </h1>
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -11,6 +12,7 @@
         <th scope="col">Fecha</th>
         <th scope="col">Asistencia</th>
         <th scope="col">Nota</th>
+        <th scope="col">Profesor</th>
       </tr>
     </thead>
     <tbody>
@@ -20,8 +22,14 @@
         <tr>
             <th scope="row">{{asistencia.id}}</th>
             <td>{{asistencia.fecha}}</td>
-            <td>{{asistencia.asistencia}}</td>
+            <td>{%if asistencia.asistencia == 'Asistente' %}
+                <span class="badge badge-success">Asistente</span>
+                {% else %}
+                <span class="badge badge-danger">Inasistente</span>
+                {% endif %}
+                </td>
             <td>{{asistencia.nota}}</td> 
+            <td>{{asistencia.profesor}}</td> 
           </tr>
 
 

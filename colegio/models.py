@@ -54,10 +54,8 @@ class Asistencia(models.Model):
     alumno = models.ForeignKey("Alumno", on_delete=models.CASCADE)
     curso = models.ForeignKey("Curso", on_delete=models.CASCADE)
     fecha = models.DateField(null=True, blank=True)
-    asistencia = models.CharField(
-        max_length=100, choices=ASISTENCIA, blank=False, null=False
-    )
-    nota = models.IntegerField(blank=False, null=True)
+    asistencia = models.CharField(max_length=100, choices=ASISTENCIA,blank=False, null=False)
+    nota = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name = "Asistencia del alumno"
