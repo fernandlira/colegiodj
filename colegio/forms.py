@@ -19,4 +19,4 @@ class CursoForm(forms.ModelForm):
 class AsistenciaForm(forms.ModelForm):
     class Meta:
         model = Asistencia
-        fields = ['identifier_profesor', 'identifier_alumno', 'curso', 'fecha', 'asistencia', 'nota']
+        fields = ['profesor', 'alumno', 'curso', 'fecha', 'asistencia', 'nota']
