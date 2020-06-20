@@ -35,7 +35,10 @@ def makeComentario(request, id=1):
         form = ComentarioForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("colegio:ver_asistencias")
+            asistencia = Asistencia.objects.get(pk=id)
+            asistencia.asistencia = 'Justificada'
+            asistencia.save()
+            return redirect('colegio:ver_asistencias')
     else:
         form = ComentarioForm
         return render(request, "colegio/ingresar_comentario.html", {"form": form})
