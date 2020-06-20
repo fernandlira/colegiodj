@@ -1,7 +1,7 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
+"""# Create your models here.
 class Profesor(models.Model):
     id = models.AutoField(primary_key=True)
     identifier = models.CharField(max_length=20, unique=True)
@@ -14,7 +14,7 @@ class Profesor(models.Model):
         ordering = ["name"]
 
     def __str__(self):
-        return self.name
+        return self.name"""
 
 
 class Alumno(models.Model):
@@ -51,7 +51,7 @@ class Asistencia(models.Model):
         ("No-asistio", "No asistio"),
     }
     id = models.AutoField(primary_key=True)
-    profesor = models.ForeignKey("Profesor", on_delete=models.CASCADE)
+    profesor = models.ForeignKey("auth.User", on_delete=models.CASCADE)
     alumno = models.ForeignKey("Alumno", on_delete=models.CASCADE)
     curso = models.ForeignKey("Curso", on_delete=models.CASCADE)
     fecha = models.DateField(null=True, blank=True, default=timezone.now)
