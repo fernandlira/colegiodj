@@ -1,17 +1,11 @@
 from django import forms
-from .models import Alumno, Profesor, Curso, Asistencia
-
-
-class ProfesorForm(forms.ModelForm):
-    class Meta:
-        model = Profesor
-        fields = ["name", "last_name"]
+from .models import Alumno, Curso, Asistencia, Nota
 
 
 class AlumnoForm(forms.ModelForm):
     class Meta:
         model = Alumno
-        fields = ["name", "lastname"]
+        fields = ["name", "last_name"]
 
 
 class CursoForm(forms.ModelForm):
@@ -23,4 +17,10 @@ class CursoForm(forms.ModelForm):
 class AsistenciaForm(forms.ModelForm):
     class Meta:
         model = Asistencia
-        fields = ["profesor", "alumno", "curso", "fecha", "asistencia", "nota"]
+        fields = ["profesor", "alumno", "fecha", "asistencia"]
+
+
+class NotaForm(forms.ModelForm):
+    class Meta:
+        model = Nota
+        fields = ["asistencia", "curso", "tipo", "nota"]
