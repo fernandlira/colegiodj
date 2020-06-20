@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Profesor(models.Model):
@@ -53,7 +54,7 @@ class Asistencia(models.Model):
     profesor = models.ForeignKey("Profesor", on_delete=models.CASCADE)
     alumno = models.ForeignKey("Alumno", on_delete=models.CASCADE)
     curso = models.ForeignKey("Curso", on_delete=models.CASCADE)
-    fecha = models.DateField(null=True, blank=True)
+    fecha = models.DateField(null=True, blank=True, default=timezone.now)
     asistencia = models.CharField(max_length=100, choices=ASISTENCIA,blank=False, null=False)
     nota = models.IntegerField(blank=True, null=True)
 
