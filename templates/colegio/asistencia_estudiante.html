@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+
+{%block title %} Listado Asistencia {% endblock %}
+
+{%block content %} 
+<h1>Asistencias y notas</h1>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Asistencia</th>
+        <th scope="col">Nota</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        {%for asistencia in asistencias%}
+
+        <tr>
+            <th scope="row">{{asistencia.id}}</th>
+            <td>{{asistencia.fecha}}</td>
+            <td>{{asistencia.asistencia}}</td>
+            <td>{{asistencia.nota}}</td> 
+          </tr>
+
+
+
+    {%endfor%}
+      
+    </tbody>
+  </table>
+
+    {% endblock %}
+</body>
+</html>
