@@ -64,7 +64,7 @@ class Asistencia(models.Model):
     def __str__(self):
         return f"Asistencia de {self.alumno} en clase de {self.profesor} en el día {self.fecha}"
 
-class Notas(models.Model):
+class Nota(models.Model):
     TIPO = {
         ("Asistio", "Asistio"),
         ("No-asistio", "No asistio"),
@@ -75,7 +75,7 @@ class Notas(models.Model):
     tipo = models.CharField(max_length=50, choices=TIPO,blank=False, null=False)
     nota = models.IntegerField(blank=True, null=True)
 
-class Comentarios(models.Model):
+class Comentario(models.Model):
     id = models.AutoField(primary_key=True)
     asistencia = models.ForeignKey("Asistencia", on_delete=models.CASCADE)
     comentario = models.TextField(blank=False, null=False)
