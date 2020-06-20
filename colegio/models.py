@@ -96,3 +96,5 @@ class Comentario(models.Model):
         verbose_name = "Justificación"
         verbose_name_plural = "Justificaciones de las asistencias"
 
+    def __str__(self):
+        return f"Comentario sobre asistencia: {self.comentario}"
