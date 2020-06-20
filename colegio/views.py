@@ -14,4 +14,5 @@ def getAsistencias(request):
 
 def getAsistencia(request, id=1):
     asistencias = Asistencia.objects.filter(alumno=id)
-    return render(request,'colegio/asistencia_estudiante.html',{'asistencias':asistencias})
+    alumno = Alumno.objects.get(pk=id)
+    return render(request,'colegio/asistencia_estudiante.html',{'asistencias':asistencias,'alumno':alumno})
