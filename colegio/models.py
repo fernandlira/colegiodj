@@ -47,7 +47,7 @@ class Curso(models.Model):
 class Asistencia(models.Model):
     ASISTENCIA = {
         ('Asistio','Asistio'),
-        ('No-asistio','No-asistio'),
+        ('No-asistio','No asistio'),
     }
     id = models.AutoField(primary_key=True)
     profesor = models.ForeignKey("Profesor", on_delete=models.CASCADE)
