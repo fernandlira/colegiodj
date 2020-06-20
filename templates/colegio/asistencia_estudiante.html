@@ -9,6 +9,7 @@
 {%block content %} 
 <a class="btn btn-primary" href="../ver-asistencias" role="button">Atras</a>
 <h1>Asistencias y notas de estudiante <span class="text-info">{{alumno.name}}</span> </h1>
+<p>Haga click en la fecha para ver las notas de ese día</p>
 <table  id="example" class="table">
     <thead class="thead-dark">
       <tr>
@@ -25,7 +26,7 @@
 
         <tr>
             <th scope="row">{{asistencia.id}}</th>
-            <td>{{asistencia.fecha}}</td>
+            <td><a href="../ver-notas/{{asistencia.id}}">{{asistencia.fecha}}</a></td>
             <td>{{asistencia.profesor}}</td> 
             <td>{%if asistencia.asistencia == 'Asistio' %}
                 <span class="badge badge-success">Asistente</span>

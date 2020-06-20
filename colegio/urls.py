@@ -5,5 +5,6 @@ urlpatterns = [
     path('', views.home, name='index'),
     path('ver-asistencias', views.getAsistencias, name='ver_asistencias'),
     path('ver-asistencia/<int:id>', views.getAsistencia, name='ver_asistencia_alumno'),
-    path('<int:id>/comentar', views.makeComentario, name='justificacion_asistencias')
+    path('<int:id>/comentar', views.makeComentario, name='justificacion_asistencias'),
+    path('ver-notas/<int:id>', views.getNotas, name='ver_notas_alumno'),
 ]

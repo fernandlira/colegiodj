@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 from django.shortcuts import redirect
-from .models import Alumno, Asistencia
+from .models import Alumno, Asistencia, Nota
 from .forms import ComentarioForm
 
 
@@ -17,6 +17,10 @@ def getAsistencia(request, id=1):
     asistencias = Asistencia.objects.filter(alumno=id)
     alumno = Alumno.objects.get(pk=id)
     return render(request,'colegio/asistencia_estudiante.html',{'asistencias':asistencias,'alumno':alumno})
+
+def getNotas(request, id=1):
+    notas = Nota.objects.filter(asistencia=id)
+    return render(request,'colegio/notas.html',{'notas':notas})
 
 @require_http_methods(["GET","POST"])
 def makeComentario(request, id=1):

@@ -69,8 +69,9 @@ class Asistencia(models.Model):
 
 class Nota(models.Model):
     TIPO = {
-        ("Asistio", "Asistio"),
-        ("No-asistio", "No asistio"),
+        ("Examen", "Examen"),
+        ("Parcial", "Parcial"),
+        ("Exposicion", "Exposicion"),
     }
     id = models.AutoField(primary_key=True)
     asistencia = models.ForeignKey("Asistencia", on_delete=models.CASCADE)
