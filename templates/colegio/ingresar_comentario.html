@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+
+{%block title %} Listado Alumnos {% endblock %}
+
+{%block content %} 
+
+  <h1>Ingresar Comentario</h1>
+<p>Ingresa comentario para justificar asistencia</p>
+
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Enviar</button>
+</form>
+
+    {% endblock %}
+
+</body>
+</html>

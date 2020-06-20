@@ -35,7 +35,7 @@
                 <span class="badge badge-danger">Inasistente</span>
                 {% endif %}
                 </td>
-                <td>{%if asistencia.asistencia == 'Asistio' or asistencia.asistencia == 'Justificada'%}-{% else %}<a class="btn btn-primary" href="{{asistencia.id}}/comentario" role="button">Justificar asistencia</a>{% endif %}</td>
+                <td>{%if asistencia.asistencia == 'Asistio' or asistencia.asistencia == 'Justificada'%}-{% else %}<a class="btn btn-primary" href="../{{asistencia.id}}/comentar" role="button">Justificar asistencia</a>{% endif %}</td>
           </tr>
 
 
@@ -51,7 +51,12 @@
   <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
 <script>
 $(document).ready(function() {
-    $('#example').DataTable();
+    $('#example').DataTable({
+      "columnDefs": [ {
+          "targets": 'no-sort',
+          "orderable": false,
+    } ]
+  });
 } );</script>
 {% endblock %}
 

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 from django.shortcuts import redirect
 from .models import Alumno, Asistencia
+from .forms import ComentarioForm
 
 
 def home(request):
@@ -22,4 +23,5 @@ def makeComentario(request, id=1):
     if request.method == "POST":
         pass
     else:
-        return render(request,'colegio/asistencia_estudiante.html',{'asistencias':asistencias,'alumno':alumno})
+        form = ComentarioForm
+        return render(request,'colegio/ingresar_comentario.html',{ 'form': form})
